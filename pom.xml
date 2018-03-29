@@ -7,11 +7,11 @@
 	<packaging>war</packaging>
 	
 
-	<parent>
-		<groupId>com.proawitz.papi</groupId>
-		<artifactId>Duolingo</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
+<!-- 	<parent> -->
+<!-- 		<groupId>com.proawitz.papi</groupId> -->
+<!-- 		<artifactId>Duolingo</artifactId> -->
+<!-- 		<version>0.0.1-SNAPSHOT</version> -->
+<!-- 	</parent> -->
 	<build>
 		<plugins>
 			<plugin>
