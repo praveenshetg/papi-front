@@ -1,23 +1,10 @@
 <link rel="stylesheet" type="text/css" href="../css/login.css">
-<div class="login-page">
-  <div class="form">
-    <form class="register-form">
-      <input type="text" placeholder="name"/>
-      <input type="password" placeholder="password"/>
-      <input type="text" placeholder="email address"/>
-      <button>create</button>
-      <p class="message">Already registered? <a href="#">Sign In</a></p>
-    </form>
-    <form class="login-form">
-      <input type="text" placeholder="username"/>
-      <input type="password" placeholder="password"/>
-      <button>login</button>
-      <p class="message">Not registered? <a href="#">Create an account</a></p>
-    </form>
-  </div>
-</div>
-<script>
-$('.message a').click(function(){
-	   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-	});s
-</script>
+<div class="log-form">
+  <h2>Login to your account</h2>
+  <form action="/papi-front/">
+    <input type="text" title="username" placeholder="username" />
+    <input type="password" title="username" placeholder="password" />
+    <button type="submit" class="btn">Login</button>
+    <a class="forgot" href="/papi-front/forgot_pass.html">Forgot Username?</a>
+  </form>
+</div><!--end log form -->

@@ -25,7 +25,8 @@ body{
 				name="firstname" placeholder="First Name.."> <label
 				for="fname">Description</label>
 			<textarea rows="20" cols="50" class="w-100 h-60" id="sc-desc"></textarea>
-			
+			<label for="fname">Date/Time</label>
+			<div id="sc-calender"></div>
 <!-- 			<div class="ui calendar" id="example1"> -->
 
 <!-- 				<div class="ui input left icon w-100"> -->
@@ -35,10 +36,12 @@ body{
 <!-- 			</div> -->
 	
 	<label for="fname">Group</label>
-	<select name="group" id = "group_id" multiple>
+	<select name="group" multiselect="true">
+		<option value="1">Group1</option>
+		<option value="2">Group2</option>
+		<option value="3">Group3</option>
+
 	</select>
-	<label for="fname">Date/Time</label>
-			<div id="sc-calender"></div>
 	<label for="fname">Repeat</label>
 	<br>
 	<div class="radio-grp">
@@ -121,8 +124,6 @@ body{
 		showSnackBar("Event Scheduled Successfully!");
 	});
 					});
-	
-	generateGroupNamesOptions('group_id');
 </script>
 
 

@@ -1,0 +1,118 @@
+<style>
+</style>
+<link rel="stylesheet" type="text/css" href="css/home.css">
+
+<head>
+<style>
+#blog-content{
+
+}
+.blog-content-object{
+    width: 100%;
+    height: 800px;
+
+}
+#my-div
+{
+    width    : 400px;
+    height   : 200px;
+    overflow : hidden;
+    position : relative;
+}
+
+#my-iframe
+{
+    position : absolute;
+    top      : -100px;
+    left     : -100px;
+    width    : 1280px;
+    height   : 1200px;
+}
+
+</style>
+</head>
+<body>
+<!-- <div id="my-div"> -->
+<!-- <iframe src="http://proawitz.com/blog/" id="my-iframe" scrolling="no"></iframe> -->
+<!-- </div> -->
+
+<div id="blog-content">
+<object type="text/html" data="http://proawitz.com/blog/" id="blog-content-object" class="blog-content-object"  style="overflow:auto;">
+    </object>
+</div>
+</body>
+
+<!-- <div class="middle"> -->
+<!--     <h1> COMING SOON</h1> -->
+<!--     <hr> -->
+<!--    <p id="demo" style="font-size:30px"></p> -->
+<!--   </div> -->
+  
+  <script>
+// Set the date we're counting down to
+// var countDownDate = new Date("Apr 12, 2018 6:37:25").getTime();
+
+// // Update the count down every 1 second
+// var countdownfunction = setInterval(function() {
+
+//     // Get todays date and time
+//     var now = new Date().getTime();
+    
+//     // Find the distance between now an the count down date
+//     var distance = countDownDate - now;
+    
+//     // Time calculations for days, hours, minutes and seconds
+//     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+//     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+//     // Output the result in an element with id="demo"
+//     document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+//     + minutes + "m " + seconds + "s ";
+    
+//     // If the count down is over, write some text 
+//     if (distance < 0) {
+//         clearInterval(countdownfunction);
+//         document.getElementById("demo").innerHTML = "EXPIRED";
+//     }
+// }, 1000);
+//$(document).ready(function(){
+	 //$("#blog-content")
+     //.html('<object data="http://proawitz.com/blog/>');
+	 function hideDivs(){
+		setTimeout(
+	    function() {
+	    	var a = document.getElementById("blog-content-object");
+			// Get the SVG document inside the Object tag
+			var svgDoc = a.contentDocument.postMessage();
+			// Get one of the SVG items by ID;
+			var svgItem = svgDoc.getElementById("gtco-footer");
+			// Set the colour to something else
+			svgItem.hide();
+	    	alert("hiding div")
+	    	$(".gtco-nav").hide();
+	    	$(".gtco-logo").hide();
+	    	$(".top-barr").hide();
+	    	$("#gtco-header").hide();
+	    	$("#gtco-footer").hide(); 
+	    }, 2000);
+	 }
+	 //hideDivs();
+	
+//});
+
+// 	 window.onload=function() {
+// 			// Get the Object by ID
+// 			var a = document.getElementById("blog-content-object");
+// 			// Get the SVG document inside the Object tag
+// 			var svgDoc = a.contentDocument;
+// 			// Get one of the SVG items by ID;
+// 			var svgItem = svgDoc.getElementById("gtco-footer");
+// 			// Set the colour to something else
+// 			svgItem.hide();
+// 			//setAttribute("fill", "lime");
+// 		};
+
+
+</script>

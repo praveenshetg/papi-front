@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="css/forms.css">
+<link rel="stylesheet" type="text/css" href="css/side-menu.css">
 <link rel="stylesheet" type="text/css" href="css/main.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/scheduler.css">
+<link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
 <script src="js/base.js"></script>
 <script src="js/utility.js"></script>
-
 </head>
-
-<body >
+<body>
 	<div class="nav">
 		<div class="company-name">
-			<div class="c-name">Company</div>
+			<button class="side-menu-btn" id="side-menu-btn">
+				<i class="fa fa-bars"></i>
+			</button>
+			<div class="c-name">peakaboo</div>
 		</div>
 		<div class="user-menu">
 			<div class="welcome-text">Welcome Praveen</div>
-			<img src="images/image1.jpg" alt="Avatar" style="width: 100%;">
+			<div class="dropdown">
+				<div id="main-btn">
+					<img src="images/image1.jpg" class="profile-pic" alt="Avatar"
+						style="width: 100%;">
+					<div class="dropdown-content" style="top: 46px; right: -38px;">
+						<a id="profile-btn">Profile</a> <a id="p-logout-btn"
+							href="/papi-front">Logout</a>
+
+					</div>
+				</div>
+
+			</div>
+
 		</div>
-		
-	</div>
-	<div id="left-menu">
-		<div class="table-container menu-outer">
-			<div id="menu-list"></div>
-		</div>
+		<div id="menu-list"></div>
 	</div>
 
 	<div id="outer-content">
@@ -32,13 +46,66 @@
 			<div id="main-content"></div>
 		</div>
 	</div>
+	<div id="snackbar" class="snackbar">.</div>
 </body>
 <script>
 	$(function() {
 		$("#menu-list").load("view/common/side_menu.html");
-		$("#main-content").load("view/chatScreen.html");
+		$("#main-content").load("view/home.html");
 
 	});
-</script>
+	$("#profile-btn").click(function() {
+		$("#main-content").load("view/user_profile.html");
 
+	});
+
+	$("#side-menu-btn").click(function(e) {
+		e.stopPropagation();
+		console.log("button clicked")
+		$(".btn-group").toggleClass("show-side-menu");
+
+	});
+	$("body").click(function(e) {
+		e.stopPropagation();
+		console.log("body clicked")
+		$(".btn-group").removeClass("show-side-menu");
+
+	});
+	
+	 var user="end_user"
+		 if (user=="end_user"){
+			 $(".admin").hide();
+			 $(".end_user").show();
+			}
+</script>
+<style>
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 6px 0px 6px 1px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+        background-color: #2b2b2b;
+            opacity: 0.8;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+.snackbar.show {
+	visibility: visible;
+	-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+	animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+</style>
 </html>
