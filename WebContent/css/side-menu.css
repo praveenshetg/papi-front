@@ -97,6 +97,7 @@ background-color: #312929;
 	}
 .nav{
 	    height: 50px;
+	        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 .side-menu-btn{
 	width: 31px;

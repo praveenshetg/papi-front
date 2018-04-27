@@ -1,4 +1,5 @@
 function createDynamiTable(groupData,id){
+	$(".spinner").show();
 	if(groupData.length==0){
 		return;
 	}
@@ -46,6 +47,7 @@ for (var i = 0; i < groupData.length; i++) {
 var divContainer = document.getElementById(id);
 divContainer.innerHTML = "";
 divContainer.appendChild(table);
+$(".spinner").hide();
 }
 
 
@@ -75,6 +77,7 @@ function paginateTable(id,rows){
 }
 
 function createDynamiForm(group,id){
+	$(".spinner").show();
 	// EXTRACT VALUE FOR HTML HEADER. 
 	// ('Book ID', 'Book Name', 'Category' and 'Price')
 	var col = [];
@@ -227,10 +230,12 @@ function createDynamiForm(group,id){
 	var divContainer = document.getElementById(id);
 	divContainer.innerHTML = "";
 	divContainer.appendChild(form);
+	$(".spinner").hide();
 	}
 
 
 function createChatList(chats, user_id, group_id, div_id){
+$(".spinner").show();
 	// CREATE DYNAMIC Chat Page.
 	var outerdiv = document.createElement("div")
 	outerdiv.setAttribute("id", "messages-container" );
@@ -278,6 +283,7 @@ function createChatList(chats, user_id, group_id, div_id){
 	var divContainer = document.getElementById(div_id);
 	divContainer.innerHTML = "";
 	divContainer.appendChild(outerdiv);
+	$(".spinner").hide();
 }
 
 
@@ -298,6 +304,7 @@ function pushChat(data){
 		
 
 function getChatList(){
+	$(".spinner").show();
 	$.ajax({
 		method : "GET",
 		url : "http://localhost:9090/papi/schedule/getmessagelist/1",
@@ -310,6 +317,7 @@ function getChatList(){
 		createChatList(chatList, 1, 1, "chatList")
 		//scrollToBottom('messages-container','div')
 		scrollSmoothToBottom('chatList')
+		$(".spinner").hide();
 		//scrollToBottom();
 	});
 	
@@ -327,6 +335,7 @@ function sssscrollToBottom(){
 }
 
 function getGroupList(){
+	$(".spinner").show();
 	$.ajax({
 		method : "GET",
 		url : "http://localhost:9090/papi/group/getGroupList",
@@ -336,11 +345,13 @@ function getGroupList(){
 			   showSnackBar("Loading Group List...")
 			    createDynamiTable(groupList,"showData"); 
 			   paginateTable("grp-table",5);
+			   $(".spinner").hide();
 			// return groupList;
 	});
 }
 
 function generateGroupNamesOptions(div_id){
+	$(".spinner").show();
 	$.ajax({
 		method : "GET",
 		url : "http://localhost:9090/papi/group/getGroupList",
@@ -355,6 +366,7 @@ function generateGroupNamesOptions(div_id){
 			option.textContent = groups[group].name;
 		  group_select.appendChild(option);
 		}
+		$(".spinner").hide();
 	});
 	
 }

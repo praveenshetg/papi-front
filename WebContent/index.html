@@ -30,7 +30,7 @@
 						style="width: 100%;">
 					<div class="dropdown-content" style="top: 46px; right: -38px;">
 						<a id="profile-btn">Profile</a> <a id="p-logout-btn"
-							href="/papi-front">Logout</a>
+							href="/papi-front/login.html">Logout</a>
 
 					</div>
 				</div>
@@ -47,6 +47,8 @@
 		</div>
 	</div>
 	<div id="snackbar" class="snackbar">.</div>
+	<div class="spinner" ></div>
+	<div class='lmask'></div>
 </body>
 <script>
 	$(function() {
@@ -77,6 +79,7 @@
 			 $(".admin").hide();
 			 $(".end_user").show();
 			}
+	 $(".spinner").hide();
 </script>
 <style>
 #snackbar {
@@ -106,6 +109,114 @@
 	visibility: visible;
 	-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
 	animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+
+#--------Mask----
+.spinner {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: red;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+  opacity: 0.4;
+}
+.spinner.fixed {
+  position: fixed;
+}
+.spinner:before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0);
+  border: 5px solid rgba(0, 183, 229, 0.9);
+  opacity: 0.9;
+  border-right: 5px solid rgba(0, 0, 0, 0);
+  border-left: 5px solid rgba(0, 0, 0, 0);
+  border-radius: 50px;
+  box-shadow: 0 0 35px #2187e7;
+  width: 50px;
+  height: 50px;
+  -moz-animation: spinPulse 1s infinite ease-in-out;
+  -webkit-animation: spinPulse 1s infinite linear;
+  margin: -25px 0 0 -25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.spinner:after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0);
+  border: 5px solid rgba(0, 183, 229, 0.9);
+  opacity: 0.9;
+  border-left: 5px solid rgba(0, 0, 0, 0);
+  border-right: 5px solid rgba(0, 0, 0, 0);
+  border-radius: 50px;
+  box-shadow: 0 0 15px #2187e7;
+  width: 30px;
+  height: 30px;
+  -moz-animation: spinoffPulse 1s infinite linear;
+  -webkit-animation: spinoffPulse 1s infinite linear;
+  margin: -15px 0 0 -15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+@-moz-keyframes spinPulse {
+  0% {
+    -moz-transform: rotate(160deg);
+    opacity: 0;
+    box-shadow: 0 0 1px #2187e7;
+  }
+  50% {
+    -moz-transform: rotate(145deg);
+    opacity: 1;
+  }
+  100% {
+    -moz-transform: rotate(-320deg);
+    opacity: 0;
+  }
+}
+@-moz-keyframes spinoffPulse {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spinPulse {
+  0% {
+    -webkit-transform: rotate(160deg);
+    opacity: 0;
+    box-shadow: 0 0 1px #2187e7;
+  }
+  50% {
+    -webkit-transform: rotate(145deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotate(-320deg);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes spinoffPulse {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+input:not(:placeholder-shown) {
+  border-color: green;
+}
+
+input:placeholder-shown {
+  border-color: red;
 }
 </style>
 </html>

@@ -78,13 +78,11 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, 
 	#margin:2px;
 }
 .nav {
-	#height: 56px;
-	    height: auto;
+	height: auto;
 	width: 100%;
-	#background-color: #fcfefa;/*#6B7A8F; /*#212121; /*#405d79;#24292e;*/
 	background-color:#312929;
 	border-radius:2px;
-	#margin:2px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 body { 
     #background: #fbbd08 url("../images/btightyellow.jpg")  fixed center !important; 
@@ -210,3 +208,25 @@ body {
 .checked {
     color: orange;
 }	
+
+#---------
+.spinner {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
